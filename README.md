@@ -12,11 +12,11 @@ A tiny browser extension that hides sidebars and top bars on a few sites so you 
 ## Shortcuts
 
 - **Ctrl+Shift+E** (**⌘+Shift+E** on macOS) — toggle hide on the current supported site
-- **Alt+Shift+E** — YouTube only: toggle **cinema dim** (blacks out the page around the player on watch pages)
+- **Alt+E** — YouTube only: toggle **cinema dim** (blacks out the page around the player on watch pages)
 
-Click the toolbar icon to open the popup, where you can toggle the current site, toggle cinema dim, and choose which sites the extension is active on. Shortcuts are rebindable at `chrome://extensions/shortcuts`.
+Click the toolbar icon to open the popup, where you can toggle the current site, toggle cinema dim, and choose which sites the extension is active on. Shortcuts are rebindable at `chrome://extensions/shortcuts` (or `edge://extensions/shortcuts`).
 
-> **Microsoft Edge note:** Edge reserves **Ctrl+Shift+E** for its own *sidebar search*, so the sidebar-toggle shortcut shows as **Not set** in Edge by default. The feature still works fully from the toolbar popup. To use a keyboard shortcut in Edge, open `edge://extensions/shortcuts` and assign one — either pick any free combo (e.g. `Alt+Shift+S`), or first turn off Edge's sidebar-search shortcut and then assign `Ctrl+Shift+E`. The cinema-dim shortcut `Alt+Shift+E` works in Edge out of the box.
+> **Browser-reserved shortcuts:** Some browsers claim these combos for their own features — **Edge** uses `Ctrl+Shift+E` for sidebar search, and **both Chrome and Edge** use `Alt+E` to open the browser menu. When a combo is reserved, the browser shows the command as **Not set** until you assign it yourself on the extension-shortcuts page — once you do, the extension's binding takes priority. Every action is always available from the toolbar popup, so the keyboard shortcuts are purely a convenience.
 
 ## Install from source (unpacked)
 
