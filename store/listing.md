@@ -58,5 +58,5 @@ Open source (GPL-3.0): https://github.com/sinanm89/Sidebar-Toggle
 
 ## Image assets to produce
 - **Chrome Web Store:** store icon 128×128 (have it); ≥1 screenshot at 1280×800 or 640×400; optional small promo tile 440×280; optional marquee 1400×560.
-- **Edge Add-ons:** store logo 300×300; ≥1 screenshot at 1280×800 (up to ~10).
+- **Edge Add-ons:** store logo 300×300 — **done → `store/logo-300.png`**; ≥1 screenshot at 1280×800 (up to ~10).
 - Suggested screenshots: before/after on Wikipedia, YouTube masthead, YouTube cinema dim, GitHub, and the popup hub.
