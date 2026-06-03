@@ -16,6 +16,8 @@ A tiny browser extension that hides sidebars and top bars on a few sites so you 
 
 Click the toolbar icon to open the popup, where you can toggle the current site, toggle cinema dim, and choose which sites the extension is active on. Shortcuts are rebindable at `chrome://extensions/shortcuts`.
 
+> **Microsoft Edge note:** Edge reserves **Ctrl+Shift+E** for its own *sidebar search*, so the sidebar-toggle shortcut shows as **Not set** in Edge by default. The feature still works fully from the toolbar popup. To use a keyboard shortcut in Edge, open `edge://extensions/shortcuts` and assign one — either pick any free combo (e.g. `Alt+Shift+S`), or first turn off Edge's sidebar-search shortcut and then assign `Ctrl+Shift+E`. The cinema-dim shortcut `Alt+Shift+E` works in Edge out of the box.
+
 ## Install from source (unpacked)
 
 1. Clone this repo.
