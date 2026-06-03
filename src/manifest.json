@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "Sidebar Toggle",
+  "short_name": "Sidebar",
+  "description": "Hide sidebars/top bars on Wikipedia, old Reddit, YouTube and GitHub to reclaim screen space. Plus a YouTube cinema-dim mode.",
+  "version": "1.0.0",
+  "author": "Sinan Midillili",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Sidebar Toggle",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "scripting", "activeTab"],
+  "host_permissions": [
+    "*://*.wikipedia.org/*",
+    "*://old.reddit.com/*",
+    "*://www.youtube.com/*",
+    "*://github.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.wikipedia.org/*",
+        "*://old.reddit.com/*",
+        "*://www.youtube.com/*",
+        "*://github.com/*"
+      ],
+      "js": ["sites.js", "engine.js", "content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "commands": {
+    "toggle-sidebar": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+E",
+        "mac": "Command+Shift+E"
+      },
+      "description": "Toggle the sidebar / top bar on the current supported site"
+    },
+    "toggle-theater": {
+      "suggested_key": {
+        "default": "Alt+Shift+E",
+        "mac": "Alt+Shift+E"
+      },
+      "description": "YouTube only: toggle cinema dim (spotlight the player)"
+    }
+  }
+}
