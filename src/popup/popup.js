@@ -102,9 +102,38 @@ async function render() {
   });
 }
 
+// Show each toggle's keyboard shortcut as a hover tooltip, and keep the footer
+// in sync. We read the LIVE bindings via chrome.commands.getAll() instead of
+// hardcoding, so this reflects user rebinds (chrome://extensions/shortcuts) and
+// the correct platform modifier (Ctrl on Win/Linux, Command on Mac).
+function applyShortcuts() {
+  if (!chrome.commands || !chrome.commands.getAll) return;
+  chrome.commands.getAll(function (cmds) {
+    var keyFor = {};
+    (cmds || []).forEach(function (c) { keyFor[c.name] = c.shortcut || ""; });
+
+    var pairs = [
+      { cmd: "toggle-sidebar", row: "hide-row", kbd: "kbd-hide" },
+      { cmd: "toggle-theater", row: "cinema-row", kbd: "kbd-cinema" }
+    ];
+    pairs.forEach(function (p) {
+      var key = keyFor[p.cmd];
+      var row = $(p.row);
+      if (row) {
+        row.title = key
+          ? "Shortcut: " + key
+          : "No keyboard shortcut set — assign one at chrome://extensions/shortcuts";
+      }
+      var kbd = $(p.kbd);
+      if (kbd) kbd.textContent = key || "unset";
+    });
+  });
+}
+
 // Re-render whenever state changes anywhere (toggles, other tabs, commands).
 chrome.storage.onChanged.addListener(function (changes, area) {
   if (area === "sync" && changes.sites) render();
 });
 
+applyShortcuts();
 render();
