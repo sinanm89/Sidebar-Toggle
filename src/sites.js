@@ -45,13 +45,19 @@ const SITES = {
     label: "YouTube",
     hasDim: true,
     test: (h) => h === "www.youtube.com",
+    // Hide the top masthead + left guide and fill the width. The real gotcha:
+    // #frosted-glass is a position:fixed 112px panel (z-index 2018) with
+    // backdrop-filter: blur(48px) sitting behind the masthead+chips. With the
+    // masthead hidden it blurred the chips AND the top of the first feed row,
+    // so shrink it back to 56px with no blur. (On watch pages YouTube already
+    // sets #frosted-glass to display:none, so .with-chipbar scopes it to feeds.)
     hideCss: `
       #masthead-container { display: none !important; }
       tp-yt-app-drawer#guide,
       ytd-mini-guide-renderer { display: none !important; }
       #page-manager { margin-top: 0 !important; margin-left: 0 !important; }
-      ytd-rich-grid-renderer #chips-wrapper { position: static !important; }
-      ytd-rich-grid-renderer #contents { padding-top: 0 !important; }`,
+      #chips-wrapper { top: 0 !important; }
+      #frosted-glass.with-chipbar { height: 56px !important; backdrop-filter: none !important; }`,
     // Cinema dim: black page, dim the non-player chrome (restored on hover),
     // keep the player lit. Applied only on /watch (gated in engine.applyState).
     dimCss: `
