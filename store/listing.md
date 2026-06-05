@@ -18,6 +18,8 @@ English (United States)
 ## URLs (point both stores here)
 - Homepage / Website: https://github.com/sinanm89/Sidebar-Toggle
 - Support: https://github.com/sinanm89/Sidebar-Toggle/issues
+- Privacy policy: https://github.com/sinanm89/Sidebar-Toggle/blob/master/PRIVACY.md
+  (Not strictly required since no data is collected, but recommended — host-permission extensions draw extra review scrutiny without one.)
 
 ## Detailed description
 
