@@ -26,7 +26,7 @@ Reclaim your screen. Sidebar Toggle hides the space-wasting sidebars and top bar
 Supported sites:
 - Wikipedia — hide the left navigation sidebar
 - old.reddit.com — hide the right sidebar and widen the posts
-- YouTube — hide the top masthead bar
+- YouTube — hide the top bar and the left guide sidebar (just the videos)
 - GitHub — hide the global top navigation header
 
 Plus, on YouTube: a "cinema dim" mode that blacks out everything around the video so the player is the only thing lit — great for focused watching.

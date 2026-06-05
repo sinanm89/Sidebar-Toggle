@@ -6,7 +6,7 @@ A tiny browser extension that hides sidebars and top bars on a few sites so you 
 |------|---------------|
 | **Wikipedia** | the left navigation sidebar (Vector 2022) |
 | **old.reddit.com** | the right sidebar (widens the post column) |
-| **YouTube** | the top masthead bar |
+| **YouTube** | the top bar **and** the left guide sidebar (just the videos) |
 | **GitHub** | the global top navigation header |
 
 ## Shortcuts

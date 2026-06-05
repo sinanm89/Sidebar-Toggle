@@ -47,7 +47,11 @@ const SITES = {
     test: (h) => h === "www.youtube.com",
     hideCss: `
       #masthead-container { display: none !important; }
-      #page-manager { margin-top: 0 !important; }`,
+      tp-yt-app-drawer#guide,
+      ytd-mini-guide-renderer { display: none !important; }
+      #page-manager { margin-top: 0 !important; margin-left: 0 !important; }
+      ytd-app { --ytd-masthead-height: 0px !important; }
+      #chips-wrapper { top: 0 !important; }`,
     // Cinema dim: black page, dim the non-player chrome (restored on hover),
     // keep the player lit. Applied only on /watch (gated in engine.applyState).
     dimCss: `
