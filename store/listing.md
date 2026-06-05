@@ -72,6 +72,23 @@ Open source (GPL-3.0): https://github.com/sinanm89/Sidebar-Toggle
 
 **Certifications:** check all three (no sale/transfer to third parties · not used for unrelated purposes · not used for creditworthiness/lending).
 
+## Reviewer notes (Edge "Notes for certification" / Chrome "Test instructions")
+
+> No login, test accounts, or special setup required — the extension works immediately after install. All behavior is local CSS injected on four specific sites; no network requests, no data collection, no remote code.
+>
+> What it does: hides the sidebar / top navigation bar on four sites to reclaim screen space, plus a YouTube "cinema dim" mode.
+>
+> How to test:
+> 1. Click the toolbar icon to open the popup, then toggle "Hide on this site" and use the per-site on/off switches.
+> 2. Wikipedia — open any article (e.g. en.wikipedia.org/wiki/Cat): toggling hides the left navigation sidebar and widens the article.
+> 3. old.reddit.com — open any subreddit (e.g. old.reddit.com/r/programming): toggling hides the right sidebar and widens the posts. (Only old.reddit.com is supported, not www.reddit.com.)
+> 4. YouTube — open youtube.com: toggling hides the top bar and the left guide so only the video grid shows. On a watch page, the "cinema dim" toggle blacks out everything around the player.
+> 5. GitHub — open any repo (e.g. github.com/sinanm89/Sidebar-Toggle): toggling hides the global top navigation header.
+>
+> Keyboard shortcuts (optional — the popup does everything): Ctrl+Shift+E = toggle hide on the current site; Alt+E = YouTube cinema dim. Note: Edge reserves both combos (Ctrl+Shift+E = sidebar search, Alt+E = browser menu) so they may show "Not set" — expected; use the popup or assign keys at edge://extensions/shortcuts.
+>
+> Settings persist via chrome.storage.sync. No dependencies on other products. Source: https://github.com/sinanm89/Sidebar-Toggle
+
 ## Image assets to produce
 - **Chrome Web Store:** store icon 128×128 (have it); ≥1 screenshot at 1280×800 or 640×400; optional small promo tile 440×280; optional marquee 1400×560.
 - **Edge Add-ons:** store logo 300×300 — **done → `store/logo-300.png`**; ≥1 screenshot at 1280×800 (up to ~10).
