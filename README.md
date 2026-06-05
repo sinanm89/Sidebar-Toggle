@@ -9,6 +9,10 @@ A tiny browser extension that hides sidebars and top bars on a few sites so you 
 | **YouTube** | the top bar **and** the left guide sidebar (just the videos) |
 | **GitHub** | the global top navigation header |
 
+## Demo
+
+[![Sidebar Toggle — demo video](https://img.youtube.com/vi/fz5KA_R-lxw/hqdefault.jpg)](https://www.youtube.com/watch?v=fz5KA_R-lxw)
+
 ## Shortcuts
 
 - **Ctrl+Shift+E** (**⌘+Shift+E** on macOS) — toggle hide on the current supported site
