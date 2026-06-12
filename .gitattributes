@@ -1,0 +1,38 @@
+# Line-ending policy: LF everywhere, host-autocrlf-proof (OpenProject 2329).
+# Text normalizes to LF in the index AND on checkout on every host regardless of
+# a host's core.autocrlf — so WSL bash scripts never get CRLF (the snnlt dirtiness).
+* text=auto eol=lf
+
+# Scripts/configs that MUST stay LF (CRLF breaks the bash shebang / WSL launchers).
+*.sh   text eol=lf
+*.ps1  text eol=lf
+*.py   text eol=lf
+*.yaml text eol=lf
+*.yml  text eol=lf
+*.toml text eol=lf
+*.json text eol=lf
+*.cfg  text eol=lf
+*.md   text eol=lf
+
+# Windows batch files keep CRLF (legacy cmd parsers).
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary assets — never touch line endings.
+*.blend binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.mp4   binary
+*.fbx   binary
+*.usd   binary
+*.usdc  binary
+*.usdz  binary
+*.npy   binary
+*.npz   binary
+*.pdf   binary
+*.ico   binary
+*.ttf   binary
+*.woff  binary
+*.woff2 binary
