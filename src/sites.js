@@ -22,11 +22,20 @@ const SITES = {
     // Vector 2022 is a CSS grid. Hide the pinned main-menu column AND collapse the
     // grid track it occupies so the article reclaims the space. Kept as two
     // independent rules so a partial future break still hides the menu.
+    //
+    // Skip the Main Page: it now lays out its own full-width featured content, so
+    // collapsing the grid there gained nothing and only fought the page's layout.
+    // MediaWiki tags the Main Page <body> with `page-Main_Page` (set however you
+    // reach it — pretty URL, ?title=, or the bare-domain redirect), so scoping every
+    // rule to body:not(.page-Main_Page) makes them inert there with no JS and no
+    // timing race. (Title-derived, so this covers the English Main Page; other-
+    // language main pages carry their own page- classes.) Credit to Wikipedia — the
+    // redesigned Main Page stands on its own and needs no help from us.
     hideCss: `
-      #vector-main-menu-pinned-container,
-      #vector-main-menu { display: none !important; }
-      .mw-page-container,
-      .mw-page-container-inner { grid-template-columns: 0 minmax(0, 1fr) 0 !important; }`
+      body:not(.page-Main_Page) #vector-main-menu-pinned-container,
+      body:not(.page-Main_Page) #vector-main-menu { display: none !important; }
+      body:not(.page-Main_Page) .mw-page-container,
+      body:not(.page-Main_Page) .mw-page-container-inner { grid-template-columns: 0 minmax(0, 1fr) 0 !important; }`
   },
 
   reddit: {
