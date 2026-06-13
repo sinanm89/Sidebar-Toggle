@@ -1,6 +1,6 @@
 # Store listing — Sidebar Toggle
 
-Copy for the **Chrome Web Store** and **Microsoft Edge Add-ons** listings.
+Copy for the **Chrome Web Store**, **Microsoft Edge Add-ons**, and **Firefox (AMO)** listings.
 Repo: https://github.com/sinanm89/Sidebar-Toggle
 
 ## Name
@@ -93,3 +93,18 @@ Open source (GPL-3.0): https://github.com/sinanm89/Sidebar-Toggle
 - **Chrome Web Store:** store icon 128×128 (have it); ≥1 screenshot at 1280×800 or 640×400; optional small promo tile 440×280; optional marquee 1400×560.
 - **Edge Add-ons:** store logo 300×300 — **done → `store/logo-300.png`**; ≥1 screenshot at 1280×800 (up to ~10).
 - Suggested screenshots: before/after on Wikipedia, YouTube masthead, YouTube cinema dim, GitHub, and the popup hub.
+
+## addons.mozilla.org (AMO) specifics
+
+The name, summary, category, description, and reviewer notes above all apply to AMO. Upload
+`dist/sidebar-toggle-<version>-firefox.zip`. Firefox-only details:
+
+- **Add-on ID:** `sidebar-toggle@sinanm89.github.io` (in `browser_specific_settings.gecko`).
+  Permanent — changing it after publishing creates a *new* listing, not an update.
+- **Data collection:** the manifest declares `data_collection_permissions: { required: ["none"] }`,
+  so on AMO's data-collection step choose **"Does not collect"** (matches PRIVACY.md).
+- **Compatibility:** Manifest V3 ⇒ Firefox **109+** (AMO sets this automatically; the package
+  intentionally omits `strict_min_version`). Built/tested for desktop; not tested on Firefox for Android.
+- **Permissions:** AMO surfaces the same storage / scripting / activeTab / host permissions — the
+  justifications above transfer verbatim. Firefox treats host permissions as opt-in (user-granted).
+- **Pre-submit validation:** `web-ext lint --source-dir dist/firefox` must report **0 errors**.

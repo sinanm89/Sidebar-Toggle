@@ -2,7 +2,10 @@
 // handler re-reads what it needs. Listeners are registered synchronously at the
 // top level so a cold-started worker doesn't miss the event that woke it.
 
-importScripts("sites.js");
+// Chrome runs this as a service worker, where importScripts() loads sites.js.
+// Firefox loads it as an event page (manifest background.scripts) where sites.js
+// is already loaded alongside and importScripts does not exist — so guard it.
+if (typeof importScripts === "function") importScripts("sites.js");
 
 // Seed defaults on install/update. Idempotent MERGE — never clobber user state.
 chrome.runtime.onInstalled.addListener(function () {

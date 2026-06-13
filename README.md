@@ -18,23 +18,44 @@ A tiny browser extension that hides sidebars and top bars on a few sites so you 
 - **Ctrl+Shift+E** (**⌘+Shift+E** on macOS) — toggle hide on the current supported site
 - **Alt+E** — YouTube only: toggle **cinema dim** (blacks out the page around the player on watch pages)
 
-Click the toolbar icon to open the popup, where you can toggle the current site, toggle cinema dim, and choose which sites the extension is active on. Shortcuts are rebindable at `chrome://extensions/shortcuts` (or `edge://extensions/shortcuts`).
+Click the toolbar icon to open the popup, where you can toggle the current site, toggle cinema dim, and choose which sites the extension is active on. Shortcuts are rebindable at `chrome://extensions/shortcuts` (or `edge://extensions/shortcuts`; on Firefox, `about:addons` → ⚙ → **Manage Extension Shortcuts**).
 
 > **Browser-reserved shortcuts:** Some browsers claim these combos for their own features — **Edge** uses `Ctrl+Shift+E` for sidebar search, and **both Chrome and Edge** use `Alt+E` to open the browser menu. When a combo is reserved, the browser shows the command as **Not set** until you assign it yourself on the extension-shortcuts page — once you do, the extension's binding takes priority. Every action is always available from the toolbar popup, so the keyboard shortcuts are purely a convenience.
 
 ## Install from source (unpacked)
 
+**Chrome / Edge**
+
 1. Clone this repo.
 2. Open `chrome://extensions` (or `edge://extensions`) and enable **Developer mode**.
 3. Click **Load unpacked** and select the **`src/`** folder.
 
-## Build a store zip
+**Firefox**
+
+1. Build the Firefox package: `pwsh -NoProfile -File scripts/pack.ps1 -Target firefox`.
+2. Open `about:debugging#/runtime/this-firefox` → **Load Temporary Add-on…**.
+3. Select **`dist/firefox/manifest.json`**. (Temporary add-ons last until you restart Firefox.)
+
+Chrome/Edge load `src/` directly, but Firefox needs the built `dist/firefox/` because that
+manifest carries the add-on id `storage.sync` requires. On first use Firefox may ask you to grant
+access to each supported site (Firefox treats host permissions as opt-in) — allow them so the
+toggles work.
+
+## Build store packages
 
 ```powershell
-pwsh -NoProfile -File scripts/pack.ps1
+pwsh -NoProfile -File scripts/pack.ps1                 # both (default)
+pwsh -NoProfile -File scripts/pack.ps1 -Target chrome
+pwsh -NoProfile -File scripts/pack.ps1 -Target firefox
 ```
 
-Produces `dist/sidebar-toggle-<version>.zip` (the contents of `src/`), ready to upload to the Chrome Web Store or Microsoft Edge Add-ons.
+From the same `src/`, this produces:
+
+- `dist/sidebar-toggle-<version>.zip` — Chrome Web Store **and** Microsoft Edge Add-ons.
+- `dist/sidebar-toggle-<version>-firefox.zip` — [addons.mozilla.org](https://addons.mozilla.org) (AMO),
+  with a Firefox-flavoured manifest (add-on id + event-page background; only `manifest.json` differs).
+  The unpacked build is left at `dist/firefox/` — validate it for AMO with
+  `web-ext lint --source-dir dist/firefox`.
 
 ## Privacy
 
